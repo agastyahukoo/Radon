@@ -52,8 +52,8 @@ namespace Radon
             notifyIcon = new NotifyIcon { Icon = SystemIcons.Information, Visible = false };
             keyboardHook.Start();
             Text = "Radon: An Open-Source Automated Mouse Clicker for Windows";
-            Size = new Size(760, 510); // Adjusted the form size
-            MinimumSize = new Size(760, 510); // Fixed the form size
+            Size = new Size(760, 510); 
+            MinimumSize = new Size(760, 510); 
             StartPosition = FormStartPosition.CenterScreen;
             ShowIcon = false;
 
@@ -104,7 +104,6 @@ namespace Radon
         {
             try
             {
-                // Register the custom file extension
                 using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(CustomFileExtension))
                 {
                     key.SetValue("", "RadonSettingsFile");
@@ -117,12 +116,11 @@ namespace Radon
                     key.CreateSubKey("Shell\\Open\\Command").SetValue("", Application.ExecutablePath + " \"%1\"");
                 }
 
-                // Notify the system that file associations have changed
                 SHChangeNotify(0x08000000, 0x0000, IntPtr.Zero, IntPtr.Zero);
             }
             catch (Exception ex)
             {
-                // Handle the exception
+            
             }
         }
 
@@ -171,7 +169,7 @@ namespace Radon
             }
             catch (Exception ex)
             {
-                // Handle the exception
+            
             }
         }
 
@@ -309,7 +307,6 @@ namespace Radon
             }
             catch (Exception ex)
             {
-                // Handle the exception
                 return false;
             }
         }
